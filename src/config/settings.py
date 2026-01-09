@@ -1,14 +1,16 @@
 from pathlib import Path
 
 # projektets rot
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 
 #directory till logs
 LOGS_DIR = PROJECT_ROOT / "logs"
 LOGS_DIR.mkdir(exist_ok=True)
 
-# api config, behövs skyddas 
-API_KEY = "ae048f6fa27a448cad56f41748b7c0ae"
+try:
+    from config.secrets import API_KEY
+except ImportError:
+    API_KEY = "INSERT_API_KEY_HERE"
 API_URL = "https://api.football-data.org/v4/competitions/PL/standings"
 API_MATCHES_URL = "https://api.football-data.org/v4/competitions/PL/matches"
 
