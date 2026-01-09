@@ -1,5 +1,5 @@
 import requests
-from config.settings import API_KEY, API_URL
+from config.settings import API_KEY, API_URL, API_MATCHES_URL
 from utils.logger import get_logger
 
 logger = get_logger()
@@ -31,4 +31,22 @@ def fetch_table():
 
     except requests.exceptions.RequestException as e:
         logger.error(f"Error fetching data: {e}")
+        raise
+
+def fetch_matches():
+    logger.info("Fetching matches data from API...")
+    
+    headers = {
+        "X-Auth-Token": API_KEY
+    }
+
+    try:
+        response = requests.get(API_MATCHES_URL + "?status=FINISHED", headers=headers, timeout=10)
+        response.raise_for_status()
+        
+        logger.info("Successfully fetched matches data")
+        return response.json()
+        
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Error fetching matches: {e}")
         raise
