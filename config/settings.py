@@ -14,7 +14,7 @@ API_URL = "https://api.football-data.org/v4/competitions/PL/standings"
 LOG_FILE = LOGS_DIR / "project.log"
 
 FORM_COLORS = {
-    "W" = "\033[92m]", # grön
-    "L" = "\033[91m]", # röd
-    "D" = "\033[90m]", # grå
-    }
+    "W": "\033[92m]", # grön
+    "L": "\033[91m]", # röd
+    "D": "\033[90m]" # grå
+}
