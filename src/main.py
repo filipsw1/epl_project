@@ -67,13 +67,17 @@ def print_team_row(team, table_filter=None, matches_data=None, show_form=True):
 def display_full_table(table_filter, matches_data=None):  
     logger.info("Displaying full table")
     print("\n" + "="*90)
-    print("PREMIER LEAGUE TABLE 2024/25".center(90))
+    print("PREMIER LEAGUE TABLE 2025/26".center(90))
     print_table_header()
         
     for team in table_filter.get_full_table():
         print_team_row(team, table_filter, matches_data)
   
     print("="*90)
+
+    print(f"\n{POSITION_COLORS['CL']}  {POSITION_COLORS['RESET']} Champions League (1-4)   "
+          f"{POSITION_COLORS['EL']}  {POSITION_COLORS['RESET']} Europa League (5)   "
+          f"{POSITION_COLORS['REL']}  {POSITION_COLORS['RESET']} Relegation (18-20)")
     return_to_menu()
 
 def search_team(table_filter, matches_data=None):
@@ -140,10 +144,10 @@ def search_team(table_filter, matches_data=None):
 
 
 def display_menu():
-    print("PREMIER LEAGUE STATS CENTER".center(50))
+    print("EPL PROJECT".center(50))
     print("="*50)
-    print("1. View Full Table")
-    print("2. Search for Specific Team")
+    print("1. View Premier League Standings")
+    print("2. Search for Premier League Team")
     print("3. Exit")
 
 def return_to_menu():
@@ -172,17 +176,12 @@ def get_user_choice():
 
 
 def main():
-
-    logger.info("=" * 50)
     logger.info("EPL Project started")
-    logger.info("=" * 50)
     
-    try:
-        
+    try:    
         print("\nFetching Premier League data...")
         data = fetch_table()
         
-        print("Fetching match results")
         matches_data = fetch_matches()
 
         table_filter = TableFilter(data)
@@ -196,7 +195,7 @@ def main():
             elif choice == 2:
                 search_team(table_filter, matches_data)
             elif choice == 3:
-                print("\nThank you for using this service!")
+                print("\nThank you for using EPL Project!")
                 logger.info("Program exited by user")
                 break
     

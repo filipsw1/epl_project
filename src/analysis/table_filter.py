@@ -8,7 +8,7 @@ class TableFilter:
         logger.debug("Loading TableFilter")
         self.data = data
         self.standings = data['standings'][0]['table']
-        logger.info("Loaded EPL table standings")
+        logger.info("Loading EPL PROJECT... \n")
 
     def get_full_table(self):
         logger.debug("Retrieving entire table")
