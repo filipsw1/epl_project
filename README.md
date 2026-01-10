@@ -19,10 +19,16 @@ venv\Scripts\activate
 3. Installera dependencies:
 pip install -r requirements.txt
 
+4. Konfigurera API-nyckel: 
+Registrera dig gratis på https://www.football-data.org/client/register
+Lägg till din API-nyckel i `src/config/secrets.py`:
+
+   API_KEY = "INSERT_YOUR_API_KEY_HERE"
+
 ## Hur man kör programmet
 
 python src/main.py
 
 ## Notering
 
-API-nyckeln är inkluderad i projektet för att underlätta testning. I vanliga fall hade den gömts.
+API-nyckeln hanteras i 'src/config/secrets.py som är exkluderad från Git. En API-nyckel exponderades tidigare i Git-historiken men har åtgärdats.
